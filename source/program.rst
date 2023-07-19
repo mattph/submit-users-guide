@@ -35,7 +35,7 @@ Getting Started with VSCode on subMIT
 
 We plan to provide more detailed instructions and tutorials in the near future, so please check back again later for more info!
 
-Microsoft provides some handy `videos <https://code.visualstudio.com/docs/getstarted/introvideos>` for getting started with VSCode.
+Microsoft provides some handy `videos <https://code.visualstudio.com/docs/getstarted/introvideos>` for getting started with VSCode.  (As well as a detailed information `here <https://code.visualstudio.com/docs/remote/ssh>`).
 
 First `download and install <https://code.visualstudio.com/docs/setup/setup-overview>` VSCode on your laptop/desktop.  
 
@@ -49,7 +49,19 @@ Select "submit" from the menu (VSCode automatically reads your ssh config file).
 
 Then, after VSCode establishes the connection, simply "Open" a folder or workspace.  Opening a folder is typically more convenient than opening a single code file.  Remember: VSCode is now connected to subMIT, so you are looking at and navigating your files on the subMIT servers, not your laptop/desktop.
 
-If you want to run/debug your code inside a particular conda environment you have installed on subMIT, then simply select that environment from the bottom blue bar.
+Please also see below for how to run/debug your code inside a conda environment `you have installed on subMIT <https://submit.mit.edu/submit-users-guide/program.html#conda>`.
+
+Working in a conda environment in VSCode on subMIT
+..................................................
+
+If you want to run/debug your code inside a particular conda environment `you have installed on subMIT <https://submit.mit.edu/submit-users-guide/program.html#conda>`, then simply select that environment from the bottom blue bar.
+
+Handy Resources
+...............
+
+* `intro videos <https://code.visualstudio.com/docs/getstarted/introvideos>`
+
+* `keyboard cheat sheet <https://code.visualstudio.com/docs/getstarted/tips-and-tricks#_keyboard-reference-sheets>`
 
 CVMFS
 ~~~~~
