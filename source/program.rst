@@ -23,6 +23,34 @@ X2Go is open source remote desktop software for Linux and is available on submit
 
 Remember to point to the correct ssh key that you have uploaded to the submit-portal. Use XFCE in the drop down once the x2goclient has started. 
 
+VSCode
+~~~~~~
+
+Visual Studio Code (VSCode) is a free, versatile and user-friendly source-code editor which supports a variety of programming languages (Python, C/C++, Java, Julia, Fortran, ...) as well as markup languages and beyond (HTML/CSS, Markdown, reStructuredText, LaTex, JSON, ...).  It contains integrated `debugging <https://code.visualstudio.com/docs/editor/debugging>` and `source control <https://code.visualstudio.com/docs/sourcecontrol/overview>` (e.g. git/GitHub) tools as well as an integrated file browser (e.g. open ).  VSCode can be easily run in a client-server mode for `remote development <https://code.visualstudio.com/docs/remote/ssh>` on subMIT.  This means you can run the VSCode application on your own laptop/desktop computer to edit, run, & debug code on the subMIT servers.  This way you work in the convenience & comfort of a GUI-based integrated development environement in your native OS on your laptop, meanwhile, behind the scenes, your code is actually being run on the subMIT machines using the software & environments on subMIT.
+
+In other words, for `most languages <https://code.visualstudio.com/docs/languages/overview>`, you can `edit <https://code.visualstudio.com/docs/editor/codebasics>` (including code highlighting, easy `code navigation <https://code.visualstudio.com/docs/editor/editingevolved>`, code completion, parameter info, quick info and other `IntelliSense <https://code.visualstudio.com/docs/editor/intellisense>` features) and `debug <https://code.visualstudio.com/docs/editor/debugging>` (breakpoints, variable inspection, stack navigation, etc.) code easily on subMIT, as well as use advanced time-saving features like `AI-assisted code development <https://code.visualstudio.com/docs/editor/artificial-intelligence>`, `snippets <https://code.visualstudio.com/docs/editor/userdefinedsnippets>`, and `tasks <https://code.visualstudio.com/docs/editor/tasks>`.  VSCode also supports many `accessibility features <https://code.visualstudio.com/docs/editor/accessibility>`.
+
+Getting Started with VSCode on subMIT
+.....................................
+
+We plan to provide more detailed instructions and tutorials in the near future, so please check back again later for more info!
+
+Microsoft provides some handy `videos <https://code.visualstudio.com/docs/getstarted/introvideos>` for getting started with VSCode.
+
+First `download and install <https://code.visualstudio.com/docs/setup/setup-overview>` VSCode on your laptop/desktop.  
+
+Then, a convenient way to set up VSCode for remote development is to set up an ssh config file as detailed `here <https://submit.mit.edu/submit-users-guide/starting.html#common-issues-with-keys>` in the subMIT User's Guide (because this will also make your life easier when not using VSCode).  
+
+Then install the `VSCode Remote-SSH extension`.  
+
+Open VSCode on your laptop/desktop and click the green "Open a Remote Window" button in the extreme lower-left of the VSCode window.  (Alternatively, open the Command Palette by hitting F1 or Shift+Command+P and type "Remote-SSH: Connect to Host...".  A "Connect to" link also appears on the VSCode Welcome Page.)
+
+Select "submit" from the menu (VSCode automatically reads your ssh config file).
+
+Then, after VSCode establishes the connection, simply "Open" a folder or workspace.  Opening a folder is typically more convenient than opening a single code file.  Remember: VSCode is now connected to subMIT, so you are looking at and navigating your files on the subMIT servers, not your laptop/desktop.
+
+If you want to run/debug your code inside a particular conda environment you have installed on subMIT, then simply select that environment from the bottom blue bar.
+
 CVMFS
 ~~~~~
 
