@@ -104,7 +104,7 @@ Setting up Source Control (with ``git``)
     .. admonition:: |ShowMore|
        :class: dropdown
 
-       VSCode has a "Smart Commit" feature which can avoid this step of staging changes.
+       VSCode has a "Smart Commit" feature which can eliminate this step of staging changes.
 
        To enable it, select the menu item "Code" -> "Preferences" -> "Settings" and then search for (and enable) "Git: Enable Smart Commit".  Also look at and configure the setting "Git: Smart Commit Changes", which defines the behavior of this feature.
 
@@ -188,7 +188,7 @@ Simulating Switching Back to Your Main (Stable) Version of the Code
 
     And then select "main" (which is the branch you want) from the drop-down that appears at the top of your screen.
 
-    Now the bottom of your window should indicate that you are back on the main branch:
+20. Now the bottom of your window should indicate that you are back on the main branch:
     
     .. image:: img/MainBranch.png
         :width: 40 %
@@ -202,7 +202,19 @@ Simulating Switching Back to Your Main (Stable) Version of the Code
 Finish & Incorporate your new changes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-20. Ok, so that fire has been put out.  Let's get back to our new feature.
+21. Ok, so that fire has been put out.  Let's get back to our new feature...
+
+Publishing this to GitHub (remote repository)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+(the typical terms of 'remote' and 'local' can be confusing in this setup since all that we have done so far was actually done on 'remote' machines - none of the code actually lives or is traced on your 'local' machine in the sense of your laptop)
+
+Note that now when switching you have to be care ful between 'remote' ... see if github is in the urgently
+
+Make another tutorial for cloning a repo?
+
+.. Cloning a repository
+.. ~~~~~~~~~~~~~~~~~~~~
 
 
 Other Helpful Tips
@@ -211,7 +223,7 @@ Other Helpful Tips
 Please see the "|ShowMore|" boxes above, as tips are hidden within those as well.
 
 .. tip::
-   VSCode has a "Smart Commit" feature which can avoid the step of staging changes.
+   VSCode has a "Smart Commit" feature which can eliminate the step of staging changes.
 
    To enable it, select the menu item "Code" -> "Preferences" -> "Settings" and then search for (and enable) "Git: Enable Smart Commit".  Also look at and configure the setting "Git: Smart Commit Changes", which defines the behavior of this feature.
 
