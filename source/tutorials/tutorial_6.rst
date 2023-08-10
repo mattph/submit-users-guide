@@ -316,13 +316,15 @@ Let's say now that you want to collaborate with others using GitHub, so you want
 
 .. note:: 
 
-    The standard terms 'remote' and 'local' can be confusing in this use case, since all that we have done so far was actually done on 'remote' machines.  *None* of the code actually lives or is tracked on your laptop (what we would typically call your 'local' machine).
+    The standard terms 'remote' and 'local' can be confusing in this use case, since everything we have done so far was actually done on 'remote' machines (the subMIT servers).  *None* of the code actually lives or is tracked on your laptop (what we would typically call your 'local' machine).
 
-    For the purposes of Github, 'local' means the repository located on subMIT.  (This is what we have been using so far.)
+    However, for the purposes of Github: 
+    
+    * 'local' means the repository located on subMIT.  (This is what we have been using so far.)
 
-    'remote' means a repository hosted on GitHub.
+    * 'remote' means a repository hosted on GitHub.
 
-28. In the Source Control sidebar
+28.  In the Source Control sidebar
 
 Note that now when switching you have to be care ful between 'remote' ... see if github is in the urgently
 
