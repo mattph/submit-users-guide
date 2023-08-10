@@ -4,31 +4,35 @@ Tutorial 6: Source Control (Git/Github) with Visual Studio Code (VSCode)
 .. |ShowMore| replace:: More Detail (click here to show/hide)
 
 .. tip:: 
+    Click on the boxes throughout this tutorial labeled "|ShowMore|" in order to see more detailed information and/or helpful hints.  Click again to hide the info again.
 
-    Click any picture to enlarge it.  (Then use your browser's 'Back' button to return to the tutorial).
-
-.. tip:: 
+.. admonition:: |ShowMore|
+    :class: dropdown
 
     The instructions below make use of the menus to run commands, but you could alternatively run the commands using keyboard shortcuts, or by pulling up the Command Palette (Command+Shift+P on Mac, or Ctrl+Shift+P on Windows or Linux) and simply typing the command (e.g. Command+Shift+P then type "connect to host").
+
+    .. tip:: 
+    
+        Click any picture to enlarge it.  (Then use your browser's 'Back' button to return to the tutorial).
 
 Setting up Source Control (with ``git``)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Follow the directions outlined `here <https://submit.mit.edu/submit-users-guide/program.html#getting-started-with-vscode-on-submit>`_ to open a session connecting Visual Studio Code on your laptop (or desktop) to subMIT.  (But do not open a folder yet once connected to subMIT).
+1.  Follow the directions outlined `here <https://submit.mit.edu/submit-users-guide/program.html#getting-started-with-vscode-on-submit>`_ to open a session connecting Visual Studio Code on your laptop (or desktop) to subMIT.  (But do not open a folder yet once connected to subMIT).
 
-2. From the top menu, select "File" -> "New File ...""
+2.  From the top menu, select "File" -> "New File ...""
 
-3. Select "Python File" from the drop-down menu will then appear at the top of your screen.  
+3.  Select "Python File" from the drop-down menu will then appear at the top of your screen.  
 
-   A new python-editor tab titled "Untitled-1" will appear (it may take a moment).
+    A new python-editor tab titled "Untitled-1" will appear (it may take a moment).
 
-   .. image:: img/Untitled.png
+    .. image:: img/Untitled.png
        :width: 30 %
        :alt: Image of "Untitled-1" python editor tab in VSCode
 
-4. Copy & past the following code into that editor window.
+4.  Copy & past the following code into that editor window.
 
-   .. code-block:: python
+    .. code-block:: python
 
         x = [1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0]
         y = []
@@ -38,7 +42,7 @@ Setting up Source Control (with ``git``)
         
         print("The values squared from for loop are:{}".format(y))
 
-   .. admonition:: |ShowMore|
+    .. admonition:: |ShowMore|
        :class: dropdown
        
        a. Click and drag in your browser to highlight the code above, then right-click and select "Copy".
@@ -47,34 +51,42 @@ Setting up Source Control (with ``git``)
        
        c. From the menu, select "Edit" -> "Paste".  The code should now appear within your "Untitled-1" editor tab within VSCode.
 
-5. From the menu, select "File" -> "Save".
+5.  From the menu, select "File" -> "Save".
 
-   A drop-down menu will appear at the top of your screen suggesting a filename in your home directory on submit.  It will look something like: /home/submit/username/x = [1.py, where "username" is your subMIT (kerberos) username.  
+    A drop-down menu will appear at the top of your screen suggesting a filename in your home directory on submit.  It will look something like: /home/submit/username/x = [1.py, where "username" is your subMIT (kerberos) username.  
 
-   Change this to "/home/submit/username/tutorial_vscode_source/small_script.py", but replace "username" with your subMIT (kerberos) username.  Then hit OK.
+    Change this to "/home/submit/username/tutorial_vscode_source/small_script.py", but replace "username" with your subMIT (kerberos) username.  Then hit OK.
 
-6. VSCode will now ask you "The folder tutorial_vscode_source does not exist.  Would you like to create it?".  Hit the "OK" button.  (This is because we included a directory that does not exist yet in the path we just entered, at the top of the screen).  This created a directory (folder) and a file in your subMIT home directory (on the subMIT servers).
+    .. image:: img/WantToCreate.png
+        :width: 100%
 
-7. Click on the "Source Control" icon to open up the Source Control sidebar.
+6.  VSCode will now ask you "The folder tutorial_vscode_source does not exist.  Would you like to create it?".  Hit the "OK" button.  (This is because we included a directory that does not exist yet in the path we just entered, at the top of the screen).  This created a directory (folder) and a file in your subMIT home directory (on the subMIT servers).
 
-   .. image:: img/SourceControl.png
+7.  Click on the "Source Control" icon to open up the Source Control sidebar.
+
+    .. image:: img/SourceControl.png
        :width: 10 %
 
-8. When the Source Control sidebar opens (white vertical bar appears to the left of the icon), it will tell you that you need to either open a folder or clone a repository.  Click the "Open Folder" button.  (We choose this option since we are making a repository from scratch in this example).
+    .. admonition:: |ShowMore|
+        :class: dropdown
 
-   .. image:: img/SourceControlOpen.png
+        Alternatively, use the menu: "View"->"Source Control"
+
+8.  When the Source Control sidebar opens (white vertical bar appears to the left of the icon), it will tell you that you need to either open a folder or clone a repository.  Click the "Open Folder" button.  (We choose this option since we are making a repository from scratch in this example).
+
+    .. image:: img/SourceControlOpen.png
        :width: 40 % 
 
-9. In the bar that appears on the top of your screen, type in "/home/submit/username/tutorial_vscode_source" but change "username" to your subMIT (kerberos) username to select the folder we just created that contains our code.  Then click "Ok" or hit "Enter".
+9.  In the bar that appears on the top of your screen, type in "/home/submit/username/tutorial_vscode_source" but change "username" to your subMIT (kerberos) username to select the folder we just created that contains our code.  Then click "Ok" or hit "Enter".
     
-   (This will re-establish your connection to subMIT so may take a moment).
+    (This will re-establish your connection to subMIT so may take a moment).
 
-   Now if you click on the File Explorer icon on the left, you will see our file "small_script.py" listed under this tutorial folder.  (Remember, this file is on the subMIT servers).
+    Now if you click on the File Explorer icon on the left, you will see our file "small_script.py" listed under this tutorial folder.  (Remember, this file is on the subMIT servers).
 
-   .. image:: img/FileExplorer.png
+    .. image:: img/FileExplorer.png
        :width: 50%
 
-10.  Click the "Source Control" icon again, and now click the "Initialize Repository" button.
+10. Click the "Source Control" icon again, and now click the "Initialize Repository" button.
 
      .. image:: img/SourceControlInitialize.png
          :width: 40%
@@ -156,15 +168,43 @@ Simulating Code Editing (Adding a new feature)
 16. Click on the Explorer icon and then "small_script.py" to bring up the editor with our file.
 
     .. image:: img/Edit.png
-        :width: 60 %
+        :width: 80 %
 
-17. Change line 5 to "``y.append(xval**3)``" and, in line 7, change "``squared``" to "``cubed``".  Then "File" -> "Save".  
+17. Let's add computing the cube of the number as well.  Make the following changes to the code:
 
-    .. tip::
+    * add "``; z = []``" to the end of line 2
+    * put your cursor at the end of line 5, then hit Enter, then type "``z.append(xval**3)``"
+
+    Your code should now look like this:
+
+    .. code-block:: python
+
+        x = [1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0]
+        y = []; z = []
+
+        for xval in x:
+            y.append(xval**2)
+            z.append(xval**3)
+
+        print("The values squared from for loop are:{}".format(y))
+
+    Then "File" -> "Save". 
+
+    .. hint:: 
+
+        Instead of manually making the above changes, you can simply delete all the code in the editor, then copy & paste the entire above code block into the editor, then save.
             
-        Note that the source control icon once again has a blue "1", indicating a pending change.  
 
-        The blue marks next to line numbers 5 & 7 indicate that those lines have changed.  
+    .. admonition:: |ShowMore|
+        :class: dropdown
+
+        * If you copy & paste, it will not fool the version control.  Instead, VSCode (via ``git``) will still only flag the actual meaningful changes in the code, rather than every line, even though you "rewrote" every line by pasting.  This is because ``git`` does a ``diff`` comparison.  Try it. 
+
+
+            
+        * Note that the source control icon once again has a blue "1", indicating a pending change.  
+
+        * The blue mark next to line 2 and green by line 6 indicate that those lines have been changed/added, respectively. 
         
         If you click on those blue marks, it will show the changes!
 
@@ -207,14 +247,88 @@ Finish & Incorporate your new changes
 
 21. Ok, so that fire has been put out.  Let's get back to our new feature...
 
+    The version of the code where we are adding the 'cubing functionality' is on the "cubed" branch.
+
+    To switch to that version of the code, simply click in the lower bar of your screen on your current branch ("main")
+
+    .. image:: img/MainBranch.png
+        :width: 40 %
+    
+    Then click on "cubed" from the drop-down menu which appears at the top of your screen.
+
+    The lower bar of your screen should indicate that you are on the "cubed" branch and the editor should reflect our new code which also cubes numbers.
+
+22. To finish our work, we still need to print out our new results.  To do that, place your cursor (click) on line 9 and then type (or paste) "``print("The values cubed from for loop are:{}".format(z))``"
+
+    Your code should now look like this:
+
+    .. code-block:: python
+
+        x = [1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0]
+        y = []; z = []
+
+        for xval in x:
+            y.append(xval**2)
+            z.append(xval**3)
+
+        print("The values squared from for loop are:{}".format(y))
+        print("The values cubed from for loop are:{}".format(z))
+
+    Then hit "File"->"Save"
+
+23. Now lets commit this change to record it with the source control.  As before, 
+    
+    * go to the Source Control sidebar ("View"->"Source Control")
+    * type "prints cube" in the Message box above the Commit button
+    * click the Commit button
+
+Merging your changes into the main branch
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+24. Now lets say you have meticulously checked your new code and you are ready to incorporate these changes into your main (stable) version of the code.  To do this, go back to the 'main' branch of your code as before:
+
+    * click your current branch ("cubed") at the bottom of the screen
+    * click "main" (the branch you want) from the drop-down that appears at the top of the screen
+    * check that the bottom of the screen now says "main" and your code reflects your 'old' code
+
+25. On the Source Control sidebar, click the "..." then "Branch" -> "Merge Branch ..."
+
+    .. image:: img/MergeBranch.png
+        :width: 80 %
+    
+26. Select "cubed" from the drop-down which appears at the top of your screen.
+    
+27. Now your code contains your new cubed code and you are still on the main branch.  You have sucessfully merged these changes to the main branch!
+
+.. admonition:: |ShowMore|
+    :class: dropdown
+
+    If you want to view the history of your code, one way is to view the "Timeline" portion of the "Explorer" sidebar ("View"->"Explorer").  By default, this contains both changes recorded in source control ("Git History") and other intermedaite file saves ("Local History").  You can filter (funnel icon) the Timeline window to only show "Git history".  Then you can see that our main branch has aquired the history of our "cubed" branch.
+
+    Alternatively, you can always pull up a terminal within VSCode (menu "Terminal" -> "New Terminal") and run ordinary git commands such as ``git log``.
+
 Publishing this to GitHub (remote repository)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-(the typical terms of 'remote' and 'local' can be confusing in this setup since all that we have done so far was actually done on 'remote' machines - none of the code actually lives or is traced on your 'local' machine in the sense of your laptop)
+What we have done so far has used git (behind the scenes in VSCode) and not GitHub.  GitHub is a web service for hosting changes to your code as well as offering tools to facilitate collaboration.
+
+Let's say now that you want to collaborate with others using GitHub, so you want to publish this to a GitHub repository. 
+
+.. note:: 
+
+    The standard terms 'remote' and 'local' can be confusing in this use case, since all that we have done so far was actually done on 'remote' machines.  *None* of the code actually lives or is tracked on your laptop (what we would typically call your 'local' machine).
+
+    For the purposes of Github, 'local' means the repository located on subMIT.  (This is what we have been using so far.)
+
+    'remote' means a repository hosted on GitHub.
+
+28. In the Source Control sidebar
 
 Note that now when switching you have to be care ful between 'remote' ... see if github is in the urgently
 
 Make another tutorial for cloning a repo?
+
+Use the "timeline" in  lower left to see info like in git log
 
 .. Cloning a repository
 .. ~~~~~~~~~~~~~~~~~~~~
