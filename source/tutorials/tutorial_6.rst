@@ -130,17 +130,20 @@ Simulating Code Editing (Adding a new feature)
 
     First we create a *new branch* so we can work on this new feature while maintaining a perfect copy of our working code.  
 
-    Click the "..." next to "Source Control", then select "Branch" -> "Create Branch ...".
-
-    .. image:: img/CreateBranch.png
-        :width: 50 %
+    Click on the current branch ("main") on the bottom of the window, and then select "+ Create new branch ..." from the dropdown that appears at the top of the screen.
+        
+    .. image:: img/MainBranch.png
+        :width: 40 %
 
     .. admonition:: |ShowMore|
        :class: dropdown
 
-        Alternatively, you could select "Checkout to ..." from the "..." menu, or click on the current branch ("main") on the bottom of the window, and then select "+ Create new branch ..." from the dropdown that appears.
+        Alternatively, you could click the "..." next to "Source Control", then select "Branch" -> "Create Branch ...".
+
+        .. image:: img/CreateBranch.png
+            :width: 50 %
         
-        .. image:: img/MainBranch.png
+        Yet another alternative is to click the "..." next to "Source Control", then select "Checkout to ..." and then select "+ Create new branch ..." from the dropdown that appears.
 
 
     Type "cubed" in the text box and then Enter (Return).  
