@@ -86,7 +86,7 @@ Setting up Source Control (with ``git``)
     .. image:: img/FileExplorer.png
        :width: 50%
 
-10. Click the "Source Control" icon again, and now click the "Initialize Repository" button.
+10. Go back to the "Source Control" sidebar, and now click the "Initialize Repository" button.
 
      .. image:: img/SourceControlInitialize.png
          :width: 40%
@@ -294,7 +294,7 @@ Merging your changes into the main branch
 25. On the Source Control sidebar, click the "..." then "Branch" -> "Merge Branch ..."
 
     .. image:: img/MergeBranch.png
-        :width: 80 %
+        :width: 60 %
     
 26. Select "cubed" from the drop-down which appears at the top of your screen.
     
