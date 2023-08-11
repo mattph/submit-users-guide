@@ -358,6 +358,11 @@ Let's say now that you want to collaborate with others using GitHub, so you want
 
     Now you should be able to see this repo on your GitHub page!
 
+    .. admonition:: |ShowMore|
+        :class: dropdown
+
+        When connected to a GitHub repo like this, after each commit, the Commit button will turn into a "Sync" (or "Push") button to allow you to easily syncronize your changes with the GitHub repository.
+
 .. Cloning a repository
 .. ~~~~~~~~~~~~~~~~~~~~
 
