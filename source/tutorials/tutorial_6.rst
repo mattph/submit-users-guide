@@ -361,7 +361,12 @@ Let's say now that you want to collaborate with others using GitHub, so you want
     .. admonition:: |ShowMore|
         :class: dropdown
 
-        When connected to a GitHub repo like this, after each commit, the Commit button will turn into a "Sync" (or "Push") button to allow you to easily syncronize your changes with the GitHub repository.
+        When connected to a GitHub repo like this, after each commit, the Commit button will turn into a "Sync Changes" button to allow you to easily syncronize your changes with the GitHub repository.
+
+More Resources
+~~~~~~~~~~~~~~
+
+For more information, including short informative videos, please see the VSCode `source control page <https://code.visualstudio.com/docs/sourcecontrol/overview>`_
 
 .. Cloning a repository
 .. ~~~~~~~~~~~~~~~~~~~~
