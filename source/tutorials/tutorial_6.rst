@@ -362,20 +362,20 @@ Let's say now that you want to collaborate with others using GitHub, so you want
 .. ~~~~~~~~~~~~~~~~~~~~
 
 
-Other Helpful Tips
-~~~~~~~~~~~~~~~~~~
+.. Other Helpful Tips
+.. ~~~~~~~~~~~~~~~~~~
 
-Please see the "|ShowMore|" boxes above, as tips are hidden within those as well.
+.. Please see the "|ShowMore|" boxes above, as tips are hidden within those as well.
 
-.. tip::
-   VSCode has a "Smart Commit" feature which can eliminate the step of staging changes.
+.. .. tip::
+..    VSCode has a "Smart Commit" feature which can eliminate the step of staging changes.
 
-   To enable it, select the menu item "Code" -> "Preferences" -> "Settings" and then search for (and enable) "Git: Enable Smart Commit".  Also look at and configure the setting "Git: Smart Commit Changes", which defines the behavior of this feature.
+..    To enable it, select the menu item "Code" -> "Preferences" -> "Settings" and then search for (and enable) "Git: Enable Smart Commit".  Also look at and configure the setting "Git: Smart Commit Changes", which defines the behavior of this feature.
 
-.. tip:: 
-    VSCode has several different "``diff``" view for viewing changes to code.
+.. .. tip:: 
+..     VSCode has several different "``diff``" view for viewing changes to code.
 
-    For instance, see the tip in step 17 above.
+..     For instance, see the tip in step 17 above.
 
 
 
