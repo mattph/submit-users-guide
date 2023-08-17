@@ -31,8 +31,8 @@ Prerequisites
 
 You need to have Git installed.  You can `download Git here <https://git-scm.com/downloads>`_ or follow the directions in the Source Control sidebar in VSCode.
 
-The Story
-~~~~~~~~~
+The Scenario
+~~~~~~~~~~~~
 
 You set up source control to keep track of the current stable version of your code.  Then you start working on a new feature, but are interrupted by someone who wants you to run a calculation using the orignal version of your code.  You switch to that code version to fulfill the request and the switch back to pick up where you left off developing your new feature.  Once you are happy with this new feature, you incorporate it into your main ('stable') version of your code.  Then you publish your code (and history) to GitHub to collaborate with others.
 
@@ -392,8 +392,7 @@ Let's say now that you want to collaborate with others using GitHub, so you want
 More Resources
 ~~~~~~~~~~~~~~
 
-For more information, including short informative videos, please see the VSCode `source control page <https://code.visualstudio.com/docs/sourcecontrol/overview>`_
-
+* `VSCode Source Control page <https://code.visualstudio.com/docs/sourcecontrol/overview>`_ (has videos)
 * `VSCode Git FAQs <https://code.visualstudio.com/docs/sourcecontrol/faq>`_ 
 * `more about Git    in VSCode <https://code.visualstudio.com/docs/sourcecontrol/intro-to-git>`_
 * `more about GitHub in VSCode <https://code.visualstudio.com/docs/sourcecontrol/github>`_ 
