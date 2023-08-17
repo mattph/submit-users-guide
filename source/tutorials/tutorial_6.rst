@@ -24,7 +24,7 @@ You will learn to ...
 * Incorporate new changes to your code by merging branches 
 * Publish your code / source control to GigHub for collaboration
 
-In Git terminology (for those already familiar with Git), you will learn how to do the following Git actions in VSCode: ``init``, ``stage``, ``commit``, ``branch``, ``checkout``, ``push``
+In Git terminology (for those familiar), you will learn how to do the following Git actions in VSCode: ``init``, ``stage``, ``commit``, ``branch``, ``checkout``, ``push``
 
 Prerequisites
 ~~~~~~~~~~~~~
@@ -36,7 +36,7 @@ The Story
 
 You set up source control to keep track of the current stable version of your code.  Then you start working on a new feature, but are interrupted by someone who wants you to run a calculation using the orignal version of your code.  You switch to that code version to fulfill the request and the switch back to pick up where you left off developing your new feature.  Once you are happy with this new feature, you incorporate it into your main ('stable') version of your code.  Then you publish your code (and history) to GitHub to collaborate with others.
 
-Setting up Source Control (with ``git``)
+Setting up Source Control (with Git)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1.  Follow the directions outlined `here <https://submit.mit.edu/submit-users-guide/program.html#getting-started-with-vscode-on-submit>`_ to open a session connecting Visual Studio Code on your laptop (or desktop) to subMIT.  (But do not open a folder yet once connected to subMIT).
@@ -52,6 +52,7 @@ Setting up Source Control (with ``git``)
 3.  Copy & paste the following code into that editor window.
 
     .. code-block:: python
+        :linenos:
 
         x = [1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0]
         y = []
@@ -161,10 +162,10 @@ Setting up Source Control (with ``git``)
        :class: dropdown
 
         .. note::
-            The source control is performed by the program ``git``.  With this setup, ``git`` and your code both run on the subMIT machines.
+            The source control is performed by the program Git.  With this setup, Git and your code both run on the subMIT machines.
         
         .. tip::
-            At this point, you *could* click the "Publish this Branch" button in order to put this code into a GitHub repository (repo) as well.  In this tutorial, we will wait until later to do this in order to illustrate that ``git`` and GitHub are separate entities.
+            At this point, you *could* click the "Publish this Branch" button in order to put this code into a GitHub repository (repo) as well.  In this tutorial, we will wait until later to do this in order to illustrate that Git and GitHub are separate entities.
 
 
 Simulating Code Editing (Adding a new feature)
@@ -211,6 +212,8 @@ First we create a *new branch* so we can work on this new feature while maintain
     Your code should now look like this:
 
     .. code-block:: python
+        :linenos:
+        :emphasize-lines: 2,6
 
         x = [1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0]
         y = []; z = []
@@ -231,7 +234,7 @@ First we create a *new branch* so we can work on this new feature while maintain
     .. admonition:: |ShowMore|
         :class: dropdown
 
-        * If you copy & paste, it will not fool the version control.  Instead, VSCode (via ``git``) will still only flag the actual meaningful changes in the code, rather than every line, even though you "rewrote" every line by pasting.  This is because ``git`` does a ``diff`` comparison.  Try it. 
+        * If you copy & paste, it will not fool the version control.  Instead, VSCode (via Git) will still only flag the actual meaningful changes in the code, rather than every line, even though you "rewrote" every line by pasting.  This is because Git does a ``diff`` comparison.  Try it. 
         * Note that the source control icon once again has a blue "1", indicating a pending change.  
         * The blue mark next to line 2 and green by line 6 indicate that those lines have been changed/added, respectively. 
         * A deletion will show up as a red arrow to the left of the line.
@@ -301,6 +304,8 @@ The version of the code where we are adding the 'cubing functionality' is on the
     Your code should now look like this:
 
     .. code-block:: python
+        :linenos:
+        :emphasize-lines: 9
 
         x = [1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0]
         y = []; z = []
