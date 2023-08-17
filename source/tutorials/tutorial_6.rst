@@ -397,6 +397,7 @@ More Resources
 * `more about Git    in VSCode <https://code.visualstudio.com/docs/sourcecontrol/intro-to-git>`_
 * `more about GitHub in VSCode <https://code.visualstudio.com/docs/sourcecontrol/github>`_ 
 * `download Git <https://git-scm.com/downloads>`_ 
+* `tools to help merge conflics in VSCode <https://code.visualstudio.com/docs/sourcecontrol/overview#_3way-merge-editor>`_ (see also `this video <https://code.visualstudio.com/docs/sourcecontrol/overview#_understanding-conflicts>`_)
 
 More source control Extensions
 
