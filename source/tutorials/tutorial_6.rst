@@ -15,6 +15,11 @@ Tutorial 6: Source Control (Git/Github) with Visual Studio Code (VSCode)
     
         Click any picture to enlarge it.  (Then use your browser's 'Back' button to return to the tutorial).
 
+Prerequisites
+~~~~~~~~~~~~~
+
+You need to have Git installed.  You can `download Git here <https://git-scm.com/downloads>`_ or follow the directions in the Source Control sidebar in VSCode.
+
 Setting up Source Control (with ``git``)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -367,6 +372,18 @@ More Resources
 ~~~~~~~~~~~~~~
 
 For more information, including short informative videos, please see the VSCode `source control page <https://code.visualstudio.com/docs/sourcecontrol/overview>`_
+
+* `VSCode Git FAQs <https://code.visualstudio.com/docs/sourcecontrol/faq>`_ 
+* `more about Git    in VSCode <https://code.visualstudio.com/docs/sourcecontrol/intro-to-git>`_
+* `more about GitHub in VSCode <https://code.visualstudio.com/docs/sourcecontrol/github>`_ 
+* `download Git <https://git-scm.com/downloads>`_ 
+
+More source control Extensions
+* `GitHub Pull Requests and Issues <https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github>`_ 
+* `GitHub Repositories <https://marketplace.visualstudio.com/items?itemName=github.remotehub>`_ 
+
+
+
 
 .. Cloning a repository
 .. ~~~~~~~~~~~~~~~~~~~~
