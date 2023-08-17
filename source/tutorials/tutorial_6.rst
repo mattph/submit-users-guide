@@ -15,10 +15,26 @@ Tutorial 6: Source Control (Git/Github) with Visual Studio Code (VSCode)
     
         Click any picture to enlarge it.  (Then use your browser's 'Back' button to return to the tutorial).
 
+You will learn to ...
+~~~~~~~~~~~~~~~~~~~~~
+
+* Set up source control (a.k.a. version control) from scratch in VSCode (with Git)
+* Record your code versions/history using 'commits'.
+* Switch between multiple versions of your code using branches
+* Incorporate new changes to your code by merging branches 
+* Publish your code / source control to GigHub for collaboration
+
+In Git terminology (for those already familiar with Git), you will learn how to do the following Git actions in VSCode: ``init``, ``stage``, ``commit``, ``branch``, ``checkout``, ``push``
+
 Prerequisites
 ~~~~~~~~~~~~~
 
 You need to have Git installed.  You can `download Git here <https://git-scm.com/downloads>`_ or follow the directions in the Source Control sidebar in VSCode.
+
+The Story
+~~~~~~~~~
+
+You set up source control to keep track of the current stable version of your code.  Then you start working on a new feature, but are interrupted by someone who wants you to run a calculation using the orignal version of your code.  You switch to that code version to fulfill the request and the switch back to pick up where you left off developing your new feature.  Once you are happy with this new feature, you incorporate it into your main ('stable') version of your code.  Then you publish your code (and history) to GitHub to collaborate with others.
 
 Setting up Source Control (with ``git``)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
