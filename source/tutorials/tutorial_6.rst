@@ -400,6 +400,7 @@ For more information, including short informative videos, please see the VSCode 
 * `download Git <https://git-scm.com/downloads>`_ 
 
 More source control Extensions
+
 * `GitHub Pull Requests and Issues <https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github>`_ 
 * `GitHub Repositories <https://marketplace.visualstudio.com/items?itemName=github.remotehub>`_ 
 
