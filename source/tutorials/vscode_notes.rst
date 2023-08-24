@@ -22,4 +22,7 @@ These are notes that I'm making about how to do things.
 
 I'm putting them here so that they are formatted properly etc to trivailly be put into documentation.  We'll see how this goes.
 
+Setting up the Mulitplexing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
