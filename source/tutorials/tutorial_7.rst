@@ -29,6 +29,8 @@ You will learn to ...
 ~~~~~~~~~~~~~~~~~~~~~
 
 * ______
+ 
+  .. todo: fill this out
 
 Scope of this tutorial
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -40,14 +42,36 @@ Introduction
 
 Please see our additional pages on introduction to HPC and parallel computing before starting this tutorial.  This tutorial is the nuts and bolts of how to execute those concepts in a simple introductory way.
 
+.. todo: make this other page (see my earlier IAP talk)
+
 The example
 ~~~~~~~~~~~
 
 We will be looking at a simple 1D Ising model with first nearest-neighbors interactions.
 This is often treated using Monte Carlo methods, particularly the Metropolis algorithm.
-Let's say we have a python script that simulates the system for a given set of parameters (Temperature, length of the chain, number of Monte Carlo steps, etc).
+Let's say we have a python script that simulates the system for a given set of parameters: `temperature`, `J` (spin-spin interaction strength), `B` (external field strength), `nspins` (length of the chain), `nsteps` (number of Monte Carlo steps), etc.
 Please see the example function at the bottom of the page (the contents are not very important here).
 .. the example is in ising.py in this same directory
+
+Let's say that within your code, you have a function, `run_mcmc`, which does the MC simulation for a given set of parameters.
+
+.. admonition:: Important
+
+    We assume the function `run_mcmc` saves all relevant results of the simulation to a file(s).  
+    (In other words, not just returned in memory).
+    If that is not the case you will need to modify the function (or wrap it in another function) to save the results to a file.
+
+    It is also crucial that these simulation files are either placed in a unique directory for each set of simulation paramters (or the files themselves are named uniqely for each set of parameters).
+    This is to 1) prevent overwriting results and 2) prevent parallel simulations from trying to simultaneously write to the same file.
+    In the example below, this is accomplished by the python script creating/naming a new unique directory before `run_mcmc` is called.
+
+    .. admonition:: |ShowMore|
+        :class: dropdown
+
+        Why?  When we run the function in parallel, each simulation will run indepenently and may run in the same time or in an unpredictable order.  Therefore each simulation must save its own results to be read in and combined later.
+
+
+
 
 Let's say, to call the function, we run the following command in the terminal:
 
@@ -78,6 +102,10 @@ Hopefully seeing the same example done multiple ways will help abstract the esse
       :black:`Click in the Start Menu search bar (next to the Windows icon), then type "command prompt" followed by the Enter key.`
 
 
+.. admonition:: Important
+
+    Above we mentioned the importance that parallel simulations *not* try to write to the same file simultaneously.
+    The same is true for *any* resource which is not designed for multiple simultaneous access.
 
 
 
