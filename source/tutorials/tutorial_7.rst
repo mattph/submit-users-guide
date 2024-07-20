@@ -55,6 +55,17 @@ Please see the example function at the bottom of the page (the contents are not 
 
 Let's say that within your code, you have a function, `run_mcmc`, which does the MC simulation for a given set of parameters.
 
+.. code-block:: python
+
+    def run_mcmc(temperature, J, B, nspins, nsteps):
+        ''' This is where the actual Monte Carlo simulation would go.
+            Important: this function MUST save all relevant simulation result to file(s)
+            (Please see dicussion in text)
+        '''
+        # We leave the actual construction of this function as an exercise for the student ;)
+        print(f"Simulating Ising model with temperature {temperature}, J: {J}, B: {B}, length {nspins} spins, {nsteps} Monte Carlo steps.")
+        return
+
 .. admonition:: Important
 
     We assume the function `run_mcmc` saves all relevant results of the simulation to a file(s).  
@@ -70,8 +81,42 @@ Let's say that within your code, you have a function, `run_mcmc`, which does the
 
         Why?  When we run the function in parallel, each simulation will run indepenently and may run in the same time or in an unpredictable order.  Therefore each simulation must save its own results to be read in and combined later.
 
+Now let's say you are performing a study where you want to plot the magnetization as a function of temperature and applied magnetic field (for a fixed chain length, number of Monte Carlo steps, and spin-spin interaction strength).
+To that end, you run the following script which loops over those parameters and calls `run_mcmc` for each set of parameters.
 
+.. code-block:: python
 
+    # MAIN part of the script for a particular study
+    # Constants (for this study ... in a different study, we may loop over these)
+    nsteps = 1000
+    nspins = 100
+    J = 10
+
+    # get the current directory (will change directories for each simulation)
+    main_directory = os.getcwd()
+
+    # Loop over some parameters to make plots later
+    simulation_enum = 0  # This is a unique (integer) identifier for each simulation
+    for temperature in np.arange(50, 301, 50):
+        for B in np.arange(5, 10, 5):
+            # Update the simulation number
+            simulation_enum += 1
+
+            # Print what we're doing on the screen (not necessary)
+            print(f"Running simulation # {simulation_enum}: temperature={temperature}, B={B}")
+
+            # Make a unique directory for this set of parameters (aka "for this simulation")
+            directory_name = f"simulation_{simulation_enum}"
+            os.mkdir(directory_name)
+            os.chdir(directory_name)
+
+            # Now run the simulation itself
+            run_mcmc(temperature, J, B, nspins, nsteps)
+
+            # Change back to the main directory
+            os.chdir(main_directory)
+
+    # Here you would read the results of the above simulation and make plots from them.
 
 Let's say, to call the function, we run the following command in the terminal:
 
