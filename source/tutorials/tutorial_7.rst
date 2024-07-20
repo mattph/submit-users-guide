@@ -198,10 +198,12 @@ Hopefully seeing the same example done multiple ways will help abstract the esse
 
 .. tabs::
 
-   .. group-tab:: :gold:`In a bash loop (not parallel)`
+   .. group-tab:: :gold:`SLURM Job Arrays`
 
-    This method is not actually parallel, but we include it for reference as it may clarify the other examples.
-    Of course if you are running a python script you would probably 
+    SLURM job arrays are great for performing many *similar* jobs in parallel, like parameter sweeps as in this example.
+    One could also manually submit each of these as separate SLURM jobs (see our other tutorials on SLURM), but here we will use job arrays since that is better-suited for this type of calculation.
+    
+
 
 
       .. :black:`Open the Terminal application.`
