@@ -202,7 +202,11 @@ Hopefully seeing the same example done multiple ways will help abstract the esse
 
     SLURM job arrays are great for performing many *similar* jobs in parallel, like parameter sweeps as in this example.
     One could also manually submit each of these as separate SLURM jobs (see our other tutorials on SLURM), but here we will use job arrays since that is better-suited for this type of calculation.
-    
+    .. highlight the looping python code and ask AI to do it using slurm job arrays & check results
+    .. (Actually run it (FAKE calculation) on the cluster to verify that it works
+    .. do the same for snakemake, subprocesses (or whatever it's called), dask, etc (can ask AI for more)
+    .. can eventually add a section on just optimizing the code, compiling the code, and GPUs (but that would be different task)
+    .. maybe actually add a section for separate slurm jobs just for instructional purposes (say this is like what job arrays are doing - without the benefits)
 
 
 
