@@ -32,6 +32,10 @@ You will learn to ...
  
   .. todo: fill this out
 
+.. admonition:: Note
+
+    Even though this tutorial uses Python as an example, most of these techniques are general and *not* restricted to Python. If you have *any* code that can be run from the command line, you can likely run it in parallel using these techniques.  Please see also `the section discussing bash loops <_bash-loop>`_.
+
 Scope of this tutorial
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -84,7 +88,20 @@ Let's say that within your code, you have a function, `run_mcmc`, which does the
 Now let's say you are performing a study where you want to plot the magnetization as a function of temperature and applied magnetic field (for a fixed chain length, number of Monte Carlo steps, and spin-spin interaction strength).
 To that end, you run the following script which loops over those parameters and calls `run_mcmc` for each set of parameters.
 
+.. todo: better to not have function definition here too?
 .. code-block:: python
+
+    import numpy as np
+    import os
+
+    def run_mcmc(temperature, J, B, nspins, nsteps):
+        ''' This is where the actual Monte Carlo simulation would go.
+            Important: this function MUST save all relevant simulation result to file(s)
+            (Please see dicussion in text)
+        '''
+        # We leave the actual construction of this function as an exercise for the student ;)
+        print(f"Simulating Ising model w/ temperature {temperature}, J: {J}, B: {B}, length {nspins} spins, {nsteps} Monte Carlo steps.")
+        return
 
     # MAIN part of the script for a particular study
     # Constants (for this study ... in a different study, we may loop over these)
@@ -118,14 +135,64 @@ To that end, you run the following script which loops over those parameters and 
 
     # Here you would read the results of the above simulation and make plots from them.
 
-Let's say, to call the function, we run the following command in the terminal:
+This script performs the calculation serially (each simulation is run one at a time sequentially).
+The first step in parallelizing this script is to identify which parts can be run in parallel (independently, in any order, even simultaneously).
+In this case, every iteration of this loop, every call of `run_mcmc`, is completely independent (does not depend on previous iterations), so we can run each `run_mcmc` call in parallel.
+
+.. admonition:: Note
+
+    *Especially* when starting with parallel / high-performance computing, it's best to stick to a *modest* number of parallel (simultaneous) tasks.
+    Once you verify everything is working as expected, you can slowly scale up as you gain more experience and understand the potential consequences and considerations of scaling up (increasing the number of parallel calculations).
+
+The first step in the methods of this tutorial is to pull `run_mcmc` (the part we want to run in parallel) into a separate script file so that we can call it from the command prompt.  Let's call this script file `single_simulation.py`.
+We will need a way to feed the input parametrs into `single_simulation.py`.  Here we will do that via command line arguments, but you could use other methods such as writing `single_simulation.py` to read the inputs from a file. 
+.. todo: do I want to do file instead?  Well, let's do it this way and see if any method works better with an input file
+
+If you would like to see `single_simulation.py`, click |ShowMore| below.
+
+.. code-block:: python
+
+    import argparse
+
+    def run_mcmc(temperature, J, B, nspins, nsteps):
+        ''' This is where the actual Monte Carlo simulation would go.
+            Important: this function MUST save all relevant simulation result to file(s)
+            (Please see dicussion in text)
+        '''
+        # We leave the actual construction of this function as an exercise for the student ;)
+        print(f"Simulating Ising model w/ temperature {temperature}, J: {J}, B: {B}, length {nspins} spins, {nsteps} Monte Carlo steps.")
+        return
+
+    if __name__ == "__main__":
+        # Parse the command line arguments
+        parser = argparse.ArgumentParser(description='Run a single simulation of the Ising model.')
+        parser.add_argument('--temperature', type=float, help='Temperature of the system.')
+        parser.add_argument('--J', type=float, help='Spin-spin interaction strength.')
+        parser.add_argument('--B', type=float, help='External magnetic field strength.')
+        parser.add_argument('--length', type=int, help='Length of the chain.')
+        parser.add_argument('--steps', type=int, help='Number of Monte Carlo steps.')
+        args = parser.parse_args()
+
+        # Run the simulation
+        run_mcmc(args.temperature, args.J, args.B, args.length, args.steps)
+
+Now you could run this script from the command line with the following command:
 
 .. code-block:: bash
 
-   python ising.py --temperature 300 --length 100 --steps 5000
+    python single_simulation.py --temperature 300 --J 10 --B 5 --length 100 --steps 1000
 
+This would run a single simulation of the Ising model with temperature 300, J=10, B=5, length 100 spins, and 1000 Monte Carlo steps.
+
+.. _bash-loop:
+
+.. admonition:: Note
+
+    Now we are more clearly treating the general case of parallelizing *any* calculation which is called from the command line, not just a Python script.  Just replace the line above with whatever you would type in the terminal to run an independent simulation.  For example, perhaps you are running a command or script within a loops within a bash script instead of the python loops above.
+
+Now we are ready to move on to parallelizing this.
 Click on the tabs below to see the calculation run in parallel using different methods.
-In each case, once all the "jobs" or "tasks" are complete, we will likely want to combine the results together to plot them.
+In each case, you would gather your results and make your plots *after* all the "jobs" or "tasks" are complete.
 Hopefully seeing the same example done multiple ways will help abstract the essence of what's being done.
 
 
