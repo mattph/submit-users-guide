@@ -145,7 +145,43 @@ In this case, every iteration of this loop, every call of `run_mcmc`, is complet
     Once you verify everything is working as expected, you can slowly scale up as you gain more experience and understand the potential consequences and considerations of scaling up (increasing the number of parallel calculations).
 
 The first step in the methods of this tutorial is to pull `run_mcmc` (the part we want to run in parallel) into a separate script file so that we can call it from the command prompt.  Let's call this script file `single_simulation.py`.
-We will need a way to feed the input parametrs into `single_simulation.py`.  Here we will do that via command line arguments, but you could use other methods such as writing `single_simulation.py` to read the inputs from a file. 
+We will need a way to feed in the appropriate input parameters.  
+Here we will do that by writing the parameters to an input file and then have `single_simulation.py` that file.
+This is a style choice; you could alternatively use command line arguments for instance.
+
+What if I want to run a program which I did not write or cannot modify and I just pass arguments via the command line?  Click |ShowMore| below to see how.
+
+.. admonition:: |ShowMore|
+    :class: dropdown
+
+    *One* way to do this so that you can follow the rest of the tutorial is to write a wrapper script which reads the input file and then calls your function with the appropriate arguments.
+    For example, using bash (but you can use the language of your choice):
+
+.. leavign off here.  Have to decicd which way to do it in this tutorial
+.. if make subdirectories, then have to deal with path of executable and tell them to link to or copy any other relevant input files (make an example or just ask them to reach out)
+.. do I want to simplify the slurm script? (by writing separate wrapper above) or read in the slurm script?
+.. if do subdirectories and read files, the slurm script just has to change to that directory (but have to link etc).
+.. I think originally I did it for the case where the function writes outputs based on the parameter values, but directories ensures that
+.. maybe put subdirectories in the drop-down?
+.. I think I originally thought I would just say I assume the outputs are labeled and if they are not, see the show more dropdown, because no need to make tons of dirs if unnecessary (takse up a lot of space)
+.. also tell them it's often a good idea at the end to aggregate the results into a single file (e.g. using hdf5) if possible rather than having many separate files.
+.. maybe tell them that if their script only writes a small number of output files, may want them all in same dir
+.. but if many output files or it's not easy or possible to change how it names them, then make separate dirs.
+.. i mean i think it's standard in DFT to make separate dirs (just have to deal with path/inputs)
+.. maybe just move the dir thing to a showMore and have the slurm job read the input from a file.
+.. can say that if you make separte input files (e.g. if each calculation done in separate directory)
+.. or just stick with in and put in the caveats about path - jus  have to pick one
+.. or maybe actually TRY it with snakemake first and see how that does it and follow that?..  
+.. but as i said, dft does separate dirs (just have to ask team - i think depends on workflow - can't prevent everyone from doing something abusive)
+.. maybe have a show more dropdown for each section showing alternative ways e.g. within slurm script - too confusing
+.. ask opinion
+
+
+
+
+ having `single_simulation.py` read in the parameters from an input file.
+
+into `single_simulation.py`.  Here we will do that via command line arguments, but you could use other methods such as writing `single_simulation.py` to read the inputs from a file. 
 .. todo: do I want to do file instead?  Well, let's do it this way and see if any method works better with an input file
 
 If you would like to see `single_simulation.py`, click |ShowMore| below.
