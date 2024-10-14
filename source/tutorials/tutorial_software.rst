@@ -31,10 +31,6 @@ You will learn ...
 Step 1: Choose where to run jobs
 ----------------------------------------
 
-.. warning::
-
-    Maybe present this information different ways: flow chart, table, etc.  Different people prefer different presentations of information.
-
 There are different requirements/options for jobs that run via HTCondor via SLURM, so first choose your resource.
 
 Here is a summary table comparing resources managed by HTCondor vs SLURM
@@ -251,3 +247,6 @@ If your workflow may fit on either HTCondor or SLURM resources, then a few trade
 
 If in doubt, start on the internal submit SLURM cluster, then re-evaluate after you have scaled up on that resource.
 
+.. warning::
+
+    Maybe present this information different ways: flow chart, table, etc.  Different people prefer different presentations of information.
