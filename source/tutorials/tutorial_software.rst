@@ -74,7 +74,7 @@ Here is a summary table comparing resources managed by HTCondor vs SLURM
 
 .. warning::
 
-    Where does `/cvmfs` fit into this?  Is that accessible on HTCondor managed resources?  If so, is it easy to change software on it, or should everyon test on on slurm before testing on HTCondor?
+    Where does `/cvmfs` fit into this?  Is it easy to change software on it, or should everyone test on on slurm before using HTCondor?
 
 
 If in doubt, start on the internal submit SLURM cluster, then re-evaluate after you have scaled up on that resource.
@@ -101,11 +101,11 @@ Step 2: Software installation & location
 HTCondor Resources
 ~~~~~~~~~~~~~~~~~~
 
-If you are using HTCondor, you must use containers to manage your software.  Please see more information here: :ref:`containers`
+If you are using HTCondor, you should use containers to manage your software.  Please see more information here: :ref:`containers`
 
 .. warning::
 
-    * Is this accurate?  Can you alternatively access e.g. a conda environment placed into `/cvmfs`?
+    * That is actually an over-simplification and not strictly correct, right?  Can you alternatively access e.g. a conda environment placed into `/cvmfs`?
     
     * What is the recommended development/scaling process for this?  Should they start on SLURM?  If so, should they use containers?
 
@@ -153,6 +153,10 @@ If you want this to be available to your entire group, please check out: :ref:`g
 
 Group Software
 --------------
+
+.. warning::
+
+    We need to actually TEST that this works (eg for individual conda environments)
 
 * These instructions work for individual or groups, since directories are public by default on subMIT.
   
