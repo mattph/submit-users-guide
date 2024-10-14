@@ -1,5 +1,5 @@
 Tutorial: Getting Started - Choosing Where to Run your Jobs & How to Install/Manage Your Software
---------------------------------------------------------------------------------------------------
+=====================================================================================================
 
 .. warning::
 
@@ -9,22 +9,9 @@ On subMIT, we provide access to a number of different advanced computing resourc
 We also like to put you in control of managing your software, so this results in a number of options available to you as to how to install and manage your software.
 This tutorial guides you through deciding which options best fit *your* needs.
 
-.. |ShowMore| replace:: More Detail (click here to show/hide)
-
-.. tip:: 
-    Click on the boxes throughout this tutorial labeled "|ShowMore|" in order to see more detailed information and/or helpful hints.  Click again to hide the info again.
-
-.. admonition:: |ShowMore|
-    :class: dropdown
-
-    .. The instructions below make use of the menus to run commands, but you could alternatively run the commands using keyboard shortcuts, or by pulling up the Command Palette (Command+Shift+P on Mac, or Ctrl+Shift+P on Windows or Linux) and simply typing the command (e.g. Command+Shift+P then type "connect to host").
-
-    .. tip:: 
-    
-        Click any picture to enlarge it.  (Then use your browser's 'Back' button to return to the tutorial).
 
 You will learn ...
-~~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 * How to choose between the various computing resources available via subMIT
 * How to choose between options for installing/managing software for individual users or research groups
@@ -41,12 +28,14 @@ You will learn ...
 .. * High Performance style Computing = 
 
 
-Step 1: Choose where your jobs will run
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 1: Choose where to run jobs
+----------------------------------------
 
 .. warning::
 
     Maybe present this information different ways: flow chart, table, etc.  Different people prefer different presentations of information.
+
+There are different requirements/options for jobs that run via HTCondor via SLURM, so first choose your resource.
 
 Here is a summary table comparing resources managed by HTCondor vs SLURM
 
@@ -85,11 +74,160 @@ Here is a summary table comparing resources managed by HTCondor vs SLURM
 
 .. warning::
 
-    Where does `/cvmfs` fit into this?  Is that accessible on HTCondor manged resources? 
+    Where does `/cvmfs` fit into this?  Is that accessible on HTCondor managed resources?  If so, is it easy to change software on it, or should everyon test on on slurm before testing on HTCondor?
+
+
+If in doubt, start on the internal submit SLURM cluster, then re-evaluate after you have scaled up on that resource.
+
+If you prefer the same information presented as a decision process, please see: :ref:`verbal-walkthrough`
+
+
+.. [#htmt] HTCondor resources can accomodate a modest number of processors per job.  To check if your job can fit on a HTCondor resource, check here: ******
+
+.. [#intranode] This can be done via message-passing (e.g. MPI, distributed memory, "communication") *or* multi-threading (shared memory).
+
+.. warning::
+
+    Fill in the **** above for how to check the # of processors allowed within a single HTCondor job 
+
+.. warning::
+
+    You CAN run an application in HTCondor which uses MPI within a single node, correct?  You can just put MPI in your container, right?  Or does this require MPI to be installed outside the container as well?  If not, then the above decision needs to be corrected.
+
+
+Step 2: Software installation & location
+----------------------------------------
+
+HTCondor Resources
+~~~~~~~~~~~~~~~~~~
+
+If you are using HTCondor, you must use containers to manage your software.  Please see more information here: :ref:`containers`
+
+.. warning::
+
+    * Is this accurate?  Can you alternatively access e.g. a conda environment placed into `/cvmfs`?
+    
+    * What is the recommended development/scaling process for this?  Should they start on SLURM?  If so, should they use containers?
 
 
 
-If you prefer the same information presented as a decision-process, please see:
+
+
+.. _how-install-slurm:
+
+SLURM Resources
+~~~~~~~~~~~~~~~
+
+On a SLURM managed resources, you have further decisions to make as to *how* and *where* you will install your software.
+
+To install, you may either:
+
+* Use containers to install/manage your software: :ref:`containers`
+
+* *or* Perform a traditional installation on a shared drive (`/work`, `/cvmfs`)
+
+
+To do the latter, you can either install software manually (e.g. compiling custom code from source) or use a package and/or environment manager such as `conda` or `spack`.  If using the latter, you can use the `environment management <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html>`_ feature to separate different installations for different groups etc.  Please see `the software page <https://submit.mit.edu/submit-users-guide/program.html>`_ of our users guide for more information.
+
+
+
+Now you must decide *where* to install:
+
+* Will there be large [#largecvmfs]_ simultaneous access to this software installation?
+
+  * If yes, you should place it on `/cvmfs` *instead* of `/work`.  See: :ref:`cvmfs-howto`
+
+  * Otherwise, you may place it in your `/work` space.
+
+If you want this to be available to your entire group, please check out: :ref:`group-vs-individual`
+
+
+
+
+
+
+
+
+
+.. _group-vs-individual:
+
+Group Software
+--------------
+
+* These instructions work for individual or groups, since directories are public by default on subMIT.
+  
+* You will need to provide the full path to your group members for them to access your software
+
+  * If you are using conda environments in your `/work`, running `conda env list` will display the full path on the right hand side.  Your group members will have to paste that full path into their `conda activate` or `conda run` commands.  E.g. `conda activae [full path to your work env]`.
+
+* If on a SLURM system, consider the *total* amount of simultaneous access you expect (sum over *all* jobs by *all* users).  See: :ref:`cvmfs-howto`
+
+* *If* you prefer to have each group member have their own individual copy of your conda environment, please see the `conda documentation <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#sharing-an-environment>`_ for sharing environments using the `conda export` command.  Note: any changes made to environments will *not* be automatically synced across users with this method.
+
+
+
+
+
+
+
+
+
+.. _cvmfs-howto:
+
+Installing software on `/cvmfs`
+------------------------------------------------
+
+On SLURM resources, if you expect large [#largecvmfs]_ simultaneous access to your software, you should install it on `/cvmfs`.
+
+.. warning::
+
+    Need to write this section!!!  plus answer questions:
+
+    CVMFS Questions:
+    
+    * How do users easily update this when they, for instance, make code & version changes?  Is this not good for a development environment?
+  
+    * Can groups add their non-conda and non-container self-installed software to `/cvmvs`?  If so, how?  (E.g. compile c++ application from source code.)
+    
+    * How does group access to this work?  Is it just public?
+
+
+.. [#largecvmfs] If you expect more than roughly **** jobs total (across all users) to be using this software simultaneously, you should have your software placed on `/cvmfs`.
+
+.. warning::
+
+    Can we put a number (ballpark, rule of thumb) on what counts as "large" simultaneous access for a software dir?  I.e. when is it OK to be in `/work` vs when should it be in `/cvmfs`?
+
+
+
+
+
+
+
+.. _containers:
+
+Containers
+-----------
+
+.. warning::
+
+    Need to write this or link to an external resource
+    
+
+
+
+
+
+
+
+
+
+
+
+.. _verbal-walkthrough:
+
+Appendix: Walk me Through This
+------------------------------
 
 * Can each cpu processor in my workflow operate *independently*, or is significant information-sharing between processors required during run time?  
 
@@ -107,129 +245,5 @@ If you prefer the same information presented as a decision-process, please see:
 
 If your workflow may fit on either HTCondor or SLURM resources, then a few tradeoffs to keep in mind are: HTCondor provides access to a larger pool of resources, but software *must* be packaged in containers, and data must be transferred on & off of the resource *at job run time* (there are no mounted peristent storage drives on HTCondor resources).  SLURM resources have direct access to your `/home, /work/, & /ceph` directories, so they can access software & data located on those spaces (and can save output directly to those spaces).  In addition SLURM *can* run software via containers.
 
-.. [#intranode] This can be done via message-passing (e.g. MPI, distributed memory, "communication") *or* multi-threading (shared memory).
-
-.. [#htmt] HTCondor resources can accomodate a modest number of processors per job.  To check if your job can fit on a HTCondor resource, check here: ******
-
-.. warning::
-
-    Fill in the **** above for how to check the # of processors allowed within a single HTCondor job 
-
-.. warning::
-
-    You CAN run an application in HTCondor which uses MPI within a single node, correct?  You can just put MPI in your container, right?  Or does this require MPI to be installed outside the container as well?  If not, then the above decision needs to be corrected.
-
-
-Step 2: Choose software installation/management and location
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-HTCondor Resources
-------------------
-
-If you are using HTCondor, you must use containers to manage your software.  Please see more information here: :ref:`containers`
-
-.. warning::
-
-    Is this accurate?  Can you alternatively access e.g. a conda environment placed into `/cvmfs`?
-
-
-If instead, you will use SLURM managed resources, you have further decisions to make as to how you will install your software and where you will place it.
-
-
-
-.. _how-install-slurm:
-
-SLURM Resources: How to install/manage your software
--------------------------------------------------------------
-
-On a SLURM manged resource connected to subMIT, you can either:
-
-* Use containers to install/manage your software :ref:`containers`
-
-OR 
-
-* Perform a traditional installation on a shared drive (`/work`, `/cvmfs`)
-
-
-To do the latter, you can either install software manually (e.g. compiling custom code from source) or use a package and/or environment manager such as `conda` or `spack`.  If using the latter, you can use the `environment management <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html>`_ feature to separate different installations for different groups etc.  Please see `the software page <https://submit.mit.edu/submit-users-guide/program.html>`_ of our users guide for more information.
-
-
-You must also decide *where* to place your software: :ref:`where-to-put`
-
-
-
-.. _where-to-put:
-
-SLURM Resources: WHERE to place your software
-------------------------------------------------------
-
-* Will there be large [#largecvmfs]_ simultaneous access to this software installation?
-
-  * If yes, you should place it on `/cvmfs` :ref:`cvmfs-howto` *instead* of `/work`
-
-  * Otherwise, you may place it in your `/work` space.
-
-You must also decide how to install/manage your software: :ref:`how-install-slurm`
-
-
-
-
-.. _group-vs-individual:
-
-What do do if you are installing software for your entire group?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-* These instructions work for individual or groups, since directories are public by default on subMIT.
-  
-* You will need to provide the full path to your group members for them to access your software
-
-  * If you are using conda environments in your `/work`, running `conda env list` will display the full path on the right hand side.  Your group members will have to paste that full path into their `conda activate` or `conda run` commands.  E.g. `conda activae [full path to your work env]`.
-
-* Keep in mind to consider the *total* amount of simultaneous access you expect (sum over all access by all group members) :ref:`where-to-put`
-
-* *If* you prefer to have each group member have their own individual copy of your conda environment, please see the `conda documentation <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#sharing-an-environment>`_ for sharing environments using the `conda export` command.  Note: any changes made to environments will *not* be automatically synced across users with this method.
-
-
-
-
-
-
-
-
-
-.. _cvmfs-howto:
-
-Installing your software on the `/cvmfs` space
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. warnings::
-
-    Need to write this section!!!  plus answer questions:
-
-    CVMFS Questions:
-    
-    * How do users easily update this when they, for instance, make code & version changes?  Is this not good for a development environment?
-  
-    * Can groups add their non-conda and non-container self-installed software to `/cvmvs`?  If so, how?  (E.g. compile c++ application from source code.)
-    
-    * How does group access to this work?  Is it just public?
-
-
-.. [#largecvmfs] If you expect more than roughly **** jobs total (across all users) to be using this software simultaneously, you should have your software placed on `/cvmfs`.
-
-.. warnings::
-
-    Can we put a number (ballpark, rule of thumb) on what counts as "large" simultaneous access for a software dir?  I.e. when is it OK to be in `/work` vs when should it be in `/cvmfs`?
-
-
-
-.. _containers:
-
-Containers
-~~~~~~~~~~
-
-.. warnings::
-
-    Need to write this or link to an external resource
-    
+If in doubt, start on the internal submit SLURM cluster, then re-evaluate after you have scaled up on that resource.
 
