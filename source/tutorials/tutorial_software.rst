@@ -1,9 +1,9 @@
 Tutorial: Getting Started - Choosing Where to Run your Jobs & How to Install/Manage Your Software
 =====================================================================================================
 
-.. warning::
+.. .. warning::
 
-    Note to subMIT Team:  The highlighted "warnings" below are actually notes to the team (todo items) and should be addressed and removed *before publishing.*
+..     Note to subMIT Team:  The highlighted "warnings" below are actually notes to the team (todo items) and should be addressed and removed *before publishing.*
 
 On subMIT, we provide access to a number of different advanced computing resources including not only HPC-style resources managed by SLURM, but also High-Throughput sytle resources managed by HTCondor.
 We also like to put you in control of managing your software, so this results in a number of options available to you as to how to install and manage your software.
@@ -33,7 +33,7 @@ Step 1: Choose where to run jobs
 
 There are different requirements/options for jobs that run via HTCondor via SLURM, so first choose your resource.
 
-Here is a summary table comparing resources managed by HTCondor vs SLURM
+Here is a summary table comparing *resources managed by* HTCondor vs SLURM
 
 .. .. |  | HTCondor | SLURM |
 .. .. |--|----------|-------|
@@ -49,29 +49,24 @@ Here is a summary table comparing resources managed by HTCondor vs SLURM
 +------------------------------------------------------------------------------------------------+----------+--------+
 |                                                                                                | HTCondor | SLURM  |
 +================================================================================================+==========+========+
-| # available compute resources                                                                  | Largest  | Medium |
-+------------------------------------------------------------------------------------------------+----------+--------+
 | supports modest [#htmt]_ intra-node information sharing (MPI or multi-threading) [#intranode]_ | Yes      | Yes    |
 +------------------------------------------------------------------------------------------------+----------+--------+
 | supports large [#htmt]_ intra-node information sharing (MPI or multi-threading) [#intranode]_  | No       | Yes    |
 +------------------------------------------------------------------------------------------------+----------+--------+
 | supports inter-node information sharing (MPI)                                                  | No       | Yes    |
 +------------------------------------------------------------------------------------------------+----------+--------+
+| supports containers                                                                            | Yes      | Yes    |
++------------------------------------------------------------------------------------------------+----------+--------+
 | has persistent disk storage                                                                    | No       | Yes    |
 +------------------------------------------------------------------------------------------------+----------+--------+
 | direct access to shared network drives `/home`, `/work`, `/ceph`                               | No       | Yes    |
-+------------------------------------------------------------------------------------------------+----------+--------+
-| supports containers                                                                            | Yes      | Yes    |
 +------------------------------------------------------------------------------------------------+----------+--------+
 | can run software installed in `/work`                                                          | No       | Yes    |
 +------------------------------------------------------------------------------------------------+----------+--------+
 | can run software installed in `/cvmfs`                                                         |          | Yes    |
 +------------------------------------------------------------------------------------------------+----------+--------+
-
-.. warning::
-
-    Where does `/cvmfs` fit into this?  Is it easy to change software on it, or should everyone test on on slurm before using HTCondor?
-
+| # available compute resources                                                                  | Largest  | Medium |
++------------------------------------------------------------------------------------------------+----------+--------+
 
 If in doubt, start on the internal submit SLURM cluster, then re-evaluate after you have scaled up on that resource.
 
@@ -81,6 +76,12 @@ If you prefer the same information presented as a decision process, please see: 
 .. [#htmt] HTCondor resources can accomodate a modest number of processors per job.  To check if your job can fit on a HTCondor resource, check here: ******
 
 .. [#intranode] This can be done via message-passing (e.g. MPI, distributed memory, "communication") *or* multi-threading (shared memory).
+
+
+.. warning::
+
+    Where does `/cvmfs` fit into this?  Is it easy to change software on it, or should everyone test on on slurm before using HTCondor?
+
 
 .. warning::
 

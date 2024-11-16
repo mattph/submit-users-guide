@@ -1,3 +1,5 @@
 {
-    "esbonio.sphinx.confDir": ""
+    "esbonio.sphinx.confDir": "/work/submit/mheine/miniforge3/envs/docs_sphinx/bin/",
+    "esbonio.server.pythonPath": "/work/submit/mheine/miniforge3/envs/docs_sphinx/bin/",
+    "makefile.configureOnOpen": false
 }
